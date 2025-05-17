@@ -24,10 +24,12 @@ data.append("branch", branch);
 data.append("screenshot", paymentScreenshot);
 
 try {
-  const res = await fetch("http://localhost:8080/submit", {
-    method: "POST",
-    body: data,
-  });
+// frontend/src/Feedback.jsx
+await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
+  method: "POST",
+  body: data,
+});
+
 
   if (res.ok) {
     setSubmitted(true);
