@@ -76,6 +76,7 @@ style={{
       <div className="text-red-600 font-semibold text-center">{error}</div>
     )}
 
+    <label for="name" className="text-blue-700 font-semibold mb-4">Name:</label>
     <input
       type="text"
       placeholder="Enter Your Name"
@@ -85,6 +86,7 @@ style={{
       className="w-full px-5 py-3 border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
 
+<label for="usn" className="text-blue-700 font-semibold mb-4">USN:</label>
     <input
       type="text"
       placeholder="Enter Your USN"
@@ -94,7 +96,7 @@ style={{
       className="w-full px-5 py-3 border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
 
-
+<label for="branch" className="text-blue-700 font-semibold mb-4">Branch:</label>
 <input
       type="text"
       placeholder="Enter Your Branch"
