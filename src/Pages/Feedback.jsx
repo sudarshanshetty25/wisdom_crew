@@ -79,6 +79,7 @@ style={{
     <label for="name" className="text-blue-700 font-semibold mb-4">Name:</label>
     <input
       type="text"
+      id="name"
       placeholder="Enter Your Name"
       value={name}
       onChange={(e) => setName(e.target.value)}
@@ -89,6 +90,7 @@ style={{
 <label for="usn" className="text-blue-700 font-semibold mb-4">USN:</label>
     <input
       type="text"
+      id="usn"
       placeholder="Enter Your USN"
       value={usn}
       onChange={(e) => setUsn(e.target.value)}
@@ -99,6 +101,7 @@ style={{
 <label for="branch" className="text-blue-700 font-semibold mb-4">Branch:</label>
 <input
       type="text"
+      id="branch"
       placeholder="Enter Your Branch"
       value={branch}
       onChange={(e) => setBranch(e.target.value)}
@@ -121,11 +124,12 @@ style={{
 
 {/* File Upload Input */}
 <div className="mt-12">
-  <label className="block text-xl font-semibold text-blue-700 mb-4">
+  <label className="block text-xl font-semibold text-blue-700 mb-4" for="photo">
     Upload the Screenshot
   </label>
   <input
     type="file"
+    id="photo"
     onChange={(e) => setPaymentScreenshot(e.target.files[0])}
     required
     className="w-full text-gray-700 file:mr-4 file:py-3 file:px-6 file:rounded-full 
