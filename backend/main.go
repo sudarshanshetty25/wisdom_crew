@@ -13,8 +13,8 @@ import (
 	"github.com/cloudinary/cloudinary-go/api/uploader"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/v2/mongo"
+	"go.mongodb.org/mongo-driver/v2/mongo/options"
 )
 
 type Feedback struct {
@@ -25,16 +25,16 @@ type Feedback struct {
 	SubmittedAt time.Time `bson:"submitted_at"`
 }
 
-var feedbackCollection *mongo.Collection
+var FeedbackCollection *mongo.Collection
 
 func main() {
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb+srv://sudarshanshetty:UserPassword@cluster1.tcmoke2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"))
+	client, err := mongo.Connect(options.Client().ApplyURI("mongodb+srv://sudarshanshetty:UserPassword@cluster1.tcmoke2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"))
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	feedbackCollection = client.Database("touristDB").Collection("feedbacks")
+	FeedbackCollection = client.Database("touristDB").Collection("feedbacks")
 
 	app := fiber.New()
 
@@ -95,7 +95,7 @@ func handlerFeedback(c *fiber.Ctx) error {
 		SubmittedAt: time.Now(),
 	}
 
-	_, err = feedbackCollection.InsertOne(context.Background(), entry)
+	_, err = FeedbackCollection.InsertOne(context.Background(), entry)
 
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to save feedback"})
