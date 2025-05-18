@@ -28,7 +28,8 @@ type Feedback struct {
 var FeedbackCollection *mongo.Collection
 
 func main() {
-	client, err := mongo.Connect(options.Client().ApplyURI("mongodb+srv://sudarshanshetty:UserPassword@cluster1.tcmoke2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"))
+	MONGO_URI := "mongodb+srv://sudarshanshetty:UserPassword@cluster1.tcmoke2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
+	client, err := mongo.Connect(options.Client().ApplyURI(MONGO_URI))
 
 	if err != nil {
 		log.Fatal(err)
