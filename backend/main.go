@@ -40,8 +40,9 @@ func main() {
 	app := fiber.New()
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
-		AllowHeaders: "Origin, Content-Type,Accept",
+		AllowOrigins: "https://wisdom-crew-frontend.onrender.com",
+		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowMethods: "GET, POST, OPTIONS",
 	}))
 
 	app.Post("/submit", handlerFeedback)
